@@ -2,8 +2,15 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { HomePage, RegisterPage, LoginPage, UserPage, ErrorPage, NewNote, NoteId, NotesPage, EditNote } from "./Pages/Index.jsx";
-const rootNode = document.getElementById("root");
+import { HomePage } from "./HomePage.jsx";
+import { RegisterPage } from "./RegisterPage.jsx";
+import { LoginPage } from "./LoginPage.jsx";
+import { UserPage } from "./UserPage.jsx";
+import { ErrorPage } from "./Pages/ErrorPage.jsx";
+import { NewNote } from "./Pages/NewNote.jsx";
+import { NoteId } from "./Pages/NoteId.jsx";
+import { NotesPage } from "./Pages/NotesPage.jsx";
+import { EditNote } from "./Pages/EditNote.jsx";
 
 const router = createBrowserRouter([
   {
@@ -11,40 +18,40 @@ const router = createBrowserRouter([
     element: <HomePage />,
   },
   {
-    path: "/Register",
+    path: "/register",
     element: <RegisterPage />,
   },
   {
-    path: "/Login",
+    path: "/login",
     element: <LoginPage />,
   },
   {
-    path: "/User",
+    path: "/user",
     element: <UserPage />,
   },
   {
-    path: "/Error",
+    path: "/error",
     element: <ErrorPage />,
   },
   {
-    path: "/NewNote",
+    path: "/newNote",
     element: <NewNote />,
   },
   {
-    path: "/NoteId",
+    path: "/noteId/:id",
     element: <NoteId />,
   },
   {
-    path: "/Notes",
+    path: "/notes",
     element: <NotesPage />,
   },
   {
-    path: "/EditNote",
+    path: "/editNote/:id",
     element: <EditNote />,
   },
 ]);
 
-ReactDOM.createRoot(rootNode).render(
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <RouterProvider router={router} />
   </React.StrictMode>

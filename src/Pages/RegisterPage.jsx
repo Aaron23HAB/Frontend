@@ -1,7 +1,8 @@
 export const RegisterPage = () => {
     return (
         <section>
-            <h1> Welcome, registrese</h1>
+            <h1> Register </h1>
+            <p>aqui</p>
         </section>
     );
 };
