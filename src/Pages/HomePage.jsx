@@ -1,16 +1,18 @@
-import useNotes from "../Hooks/useNotes"
+import useNotes from "../Hooks/useNotes.js";
+import { AllNotes } from "../components/notes/AllNotes.jsx";
 
 export const HomePage = () => {
-    const {notes, loading, error} = useNotes();
+  const { notes, loading, error } = useNotes();
 
-        if(loading) return <p>cargando notas...</p>
-        if(error) return <p>{error}</p>
+  if (loading) return <p>cargando notas...</p>;
+  if (error) return <p>{error}</p>;
 
-        console.log(notes);
-    return (
+  console.log(notes);
+
+  return (
     <section>
-        <h1>Latest Notes</h1>
-        <p> Aqui van las notas</p>
+      <h1>Ultimas Notas</h1>
+      <AllNotes notes={notes} />
     </section>
-    );
-}
+  );
+};

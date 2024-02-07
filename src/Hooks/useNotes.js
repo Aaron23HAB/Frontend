@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { loadNotesService } from "../services";
+import { loadAllNotesService } from "../services/index.js";
 
 const useNotes = () => {
   const [notes, setNotes] = useState([]);
@@ -11,7 +11,7 @@ const useNotes = () => {
       try {
         setLoadig(true);
 
-        const data = await loadNotesService();
+        const data = await loadAllNotesService();
 
         setNotes(data);
       } catch (error) {
@@ -22,7 +22,7 @@ const useNotes = () => {
     };
 
     loadNotes();
-  });
+  }, []);
 
   return { notes, loading, error };
 };
