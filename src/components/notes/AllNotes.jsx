@@ -1,5 +1,5 @@
 import {Note} from "./Note.js"
-
+import PropTypes from "prop-types";
 
 export const AllNotes = ({ notes }) => {
   return notes.length ? (
@@ -12,5 +12,15 @@ export const AllNotes = ({ notes }) => {
         </ul>
     ) : (
         <p> No hay notas</p>
-    )
-}
+    );
+};
+
+
+AllNotes.propTypes = {
+    notes: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        text: PropTypes.string.isRequired
+      })
+    ).isRequired
+  };

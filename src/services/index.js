@@ -53,3 +53,18 @@ export const loginUserService = async ({ email, password }) => {
   }
   return json.data;
 };
+
+export const getDataService = async ({ token }) => {
+  const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/user`, {
+    headers: {
+      Authorization: token,
+    },
+  });
+  const json = await response.json();
+
+  if (!response.ok) {
+    throw new Error(json.message);
+  }
+
+  return json.data;
+};
