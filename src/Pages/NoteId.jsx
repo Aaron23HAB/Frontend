@@ -1,18 +1,20 @@
+import { useParams } from "react-router-dom";
+import { ErrorMessage } from "../components/ErrorMessage.jsx";
+import { Note } from "../components/notes/Note.jsx";
+import { useNote } from "../Hooks/useNote.js";
+
 export const NoteId = () => {
-    console.log(`pepe`);
-    return (
-      <section>
-        <h1> Login</h1>
-        <p>aqui</p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, quo ad
-          sunt corporis beatae voluptate quasi consectetur doloremque neque sed,
-          perferendis consequatur reprehenderit eius ducimus aut laudantium!
-          Accusantium, culpa non. Minus enim tenetur sunt doloremque dolor
-          veritatis corrupti ab vel voluptatem esse cum, porro libero eius dolorum
-          iure obcaecati ullam laudantium inventore accusamus possimus! Aliquid,
-          doloribus? Ullam a temporibus vitae!
-        </p>
-      </section>
-    );
-  };
+  const { id } = useParams;
+
+  const { note, loading, error } = useNote(id);
+
+  if (loading) return <p>cargando nota...</p>;
+  if (error) return <ErrorMessage message={error} />;
+
+  return (
+    <section>
+      <h1> Login</h1>
+      <Note note={note} />
+    </section>
+  );
+};
