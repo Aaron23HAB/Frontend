@@ -24,6 +24,10 @@ const useNotes = () => {
     loadNotes();
   }, []);
 
+  const addNote = (note) => {
+    setNotes([note, ...notes]);
+  };
+
   return { notes, loading, error };
 };
 
