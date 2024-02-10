@@ -84,3 +84,21 @@ export const sendNoteService = async ({ data, token }) => {
   }
   return json.data;
 };
+
+export const deleteNoteService = async ({ id, token }) => {
+  const response = await fetch(
+    `${import.meta.env.VITE_BACKEND_URL}/note/${id}`,
+    {
+      method: "DELETE",
+      headers: {
+        Authorization: token,
+      },
+    }
+  );
+
+  const json = await response.json();
+
+  if (!response.ok) {
+    throw new Error(json.message);
+  }
+};

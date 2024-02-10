@@ -19,10 +19,10 @@ function App() {
     <main>
       <Header />
       <Routes>
-        <Route path="/" element={< HomePage />} />
-        <Route path="/register" element={< RegisterPage />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/user" element={<UserPage />} />
+        <Route path="/user/:id" element={<UserPage />} />
         <Route path="/newNote" element={<NewNote />} />
         <Route path="/noteId/:id" element={<NoteId />} />
         <Route path="/notes" element={<NotesPage />} />

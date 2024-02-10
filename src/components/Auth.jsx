@@ -5,7 +5,10 @@ import { AuthContext } from "../Context/AuthContext";
 export const Auth = () => {
   const { user, logout } = useContext(AuthContext);
   return user ? (
-    <p>Usuario conectado {user.email} <button onClick={logout}>Deslogearse</button></p>
+    <p>
+      Usuario conectado {user.email}{" "}
+      <button onClick={logout}>Deslogearse</button>
+    </p>
   ) : (
     <ul>
       <li>

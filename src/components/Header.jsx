@@ -3,7 +3,7 @@ import { Auth } from "./Auth";
 import { Link } from "react-router-dom";
 
 export const Header = () => {
-  useContext
+  useContext;
   return (
     <header>
       <h1>

@@ -6,7 +6,7 @@ import { AuthContext } from "../Hooks/useNotes.js";
 import { NewNote } from "../components/notes/NewNote.jsx";
 
 export const HomePage = () => {
-  const { notes, loading, error, addNote } = useNotes();
+  const { notes, loading, error, addNote, removeNote } = useNotes();
   const { user } = useContext(AuthContext);
 
   if (loading) return <p>cargando notas...</p>;
@@ -21,7 +21,7 @@ export const HomePage = () => {
 
       <h1>Ultimas Notas</h1>
       
-      <AllNotes notes={notes} />
+      <AllNotes notes={notes} removeNote={removeNote}/>
     </section>
   );
 };

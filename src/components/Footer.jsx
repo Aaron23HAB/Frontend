@@ -1,6 +1,3 @@
-
 export const Footer = () => {
-    return<footer>
-        (c) 2024 Hack A Boss
-    </footer>
-}
+  return <footer>(c) 2024 Hack A Boss</footer>;
+};

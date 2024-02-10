@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import { createContext, useEffect, useState } from "react";
 import {getDataService} from "../services/index.js"
 
@@ -42,6 +41,3 @@ export const AuthProvideComponent = ({ children }) => {
   );
 };
 
-AuthProvideComponent.propTypes = {
-  children: PropTypes.node.isRequired,
-};

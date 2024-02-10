@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import PropTypes from "prop-types";
 
 export const ErrorMessage = ({ message }) => {
   return (
@@ -8,8 +7,4 @@ export const ErrorMessage = ({ message }) => {
       <Link to="/">Volver a Inicio</Link>
     </>
   );
-};
-
-ErrorMessage.propTypes = {
-  message: PropTypes.node.isRequired
 };

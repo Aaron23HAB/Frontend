@@ -1,11 +1,11 @@
 import { useContext, useState } from "react";
 import { sendNoteService } from "../../services";
-import {AuthContext} from "../../Context/AuthContext.js"
+import { AuthContext } from "../../Context/AuthContext.js";
 
 export const NewNote = (addNote) => {
   const [error, setError] = useState("");
   const [creating, setCreating] = useState(false);
-  const {token} = useContext(AuthContext);
+  const { token } = useContext(AuthContext);
 
   const handleForm = async (e) => {
     e.preventDefault();
@@ -13,7 +13,7 @@ export const NewNote = (addNote) => {
     try {
       setCreating(true);
       const data = new FormData(e.target);
-      const note = await sendNoteService({data, token});
+      const note = await sendNoteService({ data, token });
 
       addNote(note);
     } catch (error) {
