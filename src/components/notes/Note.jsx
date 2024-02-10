@@ -23,7 +23,6 @@ export const Note = ({ note, removeNote }) => {
   return (
     <article>
       <p>{note.title}</p>
-      <p>{note.text}</p>
       {user && user.id === note.user_id ? (
         <section>
           <button
