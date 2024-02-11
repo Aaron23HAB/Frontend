@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { AuthContext } from "../../Context/AuthContext.js";
+import { AuthContext } from "../../Context/AuthContext.jsx";
 import { deleteNoteService } from "../../services/index.js";
 import { useNavigate } from "react-router-dom";
 

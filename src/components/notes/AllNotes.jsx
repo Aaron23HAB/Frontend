@@ -1,4 +1,4 @@
-import { Note } from "./Note.js";
+import { Note } from "./Note.jsx";
 
 export const AllNotes = ({ notes, removeNote }) => {
   return notes.length ? (
@@ -10,6 +10,6 @@ export const AllNotes = ({ notes, removeNote }) => {
       ))}
     </ul>
   ) : (
-    <p> No hay notas</p>
+    <p> Todavía no hay notas</p>
   );
 };

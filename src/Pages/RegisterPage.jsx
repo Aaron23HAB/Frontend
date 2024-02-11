@@ -31,35 +31,35 @@ export const RegisterPage = () => {
       <form onSubmit={handleForm}>
         <fieldset>
           <label htmlFor="email"> Email</label>
-          <imput
+          <input
             type="email"
             id="email"
             name="email"
             required
             onChange={(e) => setEmail(e.target.value)}
-          ></imput>
+          ></input>
         </fieldset>
 
         <fieldset>
           <label htmlFor="password1"> Contraseña</label>
-          <imput
+          <input
             type="password1"
             id="password1"
             name="password1"
             required
             onChange={(e) => setpassword1(e.target.value)}
-          ></imput>
+          ></input>
         </fieldset>
 
         <fieldset>
           <label htmlFor="password2"> Repita la contraseña </label>
-          <imput
+          <input
             type="password2"
             id="password2"
             name="password2"
             required
             onChange={(e) => setpassword2(e.target.value)}
-          ></imput>
+          ></input>
         </fieldset>
 
         <button>Register</button>

@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 export const LoginPage = () => {
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState;
+  const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const { login } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -29,22 +29,22 @@ export const LoginPage = () => {
       <form onSubmit={handleForm}>
         <fieldset>
           <label htmlFor="email">Email</label>
-          <imput
+          <input
             type="email"
             id="email"
             name="email"
             required
             onChange={(e) => setEmail(e.target.value)}
-          ></imput>
+          ></input>
 
           <label htmlFor="password1">Contraseña</label>
-          <imput
+          <input
             type="password"
             id="password"
             name="password"
             required
             onChange={(e) => setPassword(e.target.value)}
-          ></imput>
+          ></input>
         </fieldset>
         <button>Login</button>
         {error ? <p>{error}</p> : null}

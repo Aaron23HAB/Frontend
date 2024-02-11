@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { singleNoteService } from "../services/index.js";
 
-const useNote = (id) => {
+export const useNote = (id) => {
   const [note, setNote] = useState(null);
   const [loading, setLoadig] = useState(true);
   const [error, setError] = useState("");
@@ -13,7 +13,7 @@ const useNote = (id) => {
 
         const data = await singleNoteService(id);
 
-        setNote(data)
+        setNote(data);
 
         setNote(data);
       } catch (error) {

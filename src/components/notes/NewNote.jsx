@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { sendNoteService } from "../../services";
-import { AuthContext } from "../../Context/AuthContext.js";
+import { AuthContext } from "../../Context/AuthContext.jsx";
 
 export const NewNote = (addNote) => {
   const [error, setError] = useState("");
