@@ -20,6 +20,10 @@ export const Note = ({ note, removeNote }) => {
       setError(error.message);
     }
   };
+
+  const editNote = (id) => {
+    navigate(`/nota/${id}`);
+  };
   return (
     <article>
       <p>{note.title}</p>
@@ -33,6 +37,7 @@ export const Note = ({ note, removeNote }) => {
           >
             🗑
           </button>
+          <button onClick={() => editNote(note.id)}>✒</button>
           {error ? <p>{error}</p> : null}
         </section>
       ) : null}

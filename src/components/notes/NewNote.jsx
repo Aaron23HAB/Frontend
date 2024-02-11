@@ -32,6 +32,9 @@ export const NewNote = (addNote) => {
         <label htmlFor="text">Texto</label>
         <input type="text" id="text" name="text" required />
 
+        <label htmlFor="text">Categoria</label>
+        <input type="text" id="text" name="categoria" required />
+
         <button>Crear nota</button>
 
         {creating ? <p>Creando nota</p> : null}

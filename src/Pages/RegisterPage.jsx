@@ -43,7 +43,7 @@ export const RegisterPage = () => {
         <fieldset>
           <label htmlFor="password1"> Contraseña</label>
           <input
-            type="password1"
+            type="password"
             id="password1"
             name="password1"
             required
@@ -54,7 +54,7 @@ export const RegisterPage = () => {
         <fieldset>
           <label htmlFor="password2"> Repita la contraseña </label>
           <input
-            type="password2"
+            type="password"
             id="password2"
             name="password2"
             required
