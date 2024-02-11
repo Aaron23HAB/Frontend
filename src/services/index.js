@@ -70,8 +70,10 @@ export const getDataService = async ({ token }) => {
 };
 
 export const getUserDataService = async (id) => {
-  const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/user/${id}`);
-  
+  const response = await fetch(
+    `${import.meta.env.VITE_BACKEND_URL}/user/${id}`
+  );
+
   const json = await response.json();
 
   if (!response.ok) {
@@ -111,5 +113,31 @@ export const deleteNoteService = async ({ id, token }) => {
 
   if (!response.ok) {
     throw new Error(json.message);
+  }
+};
+
+export const updateNoteService = async (id, updatedNote, token) => {
+  try {
+    const response = await fetch(
+      `${import.meta.env.VITE_BACKEND_URL}/note/${id}`,
+      {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: token,
+        },
+        body: JSON.stringify(updatedNote),
+      }
+    );
+
+    const json = await response.json();
+
+    if (!response.ok) {
+      throw new Error(json.message);
+    }
+
+    return json;
+  } catch (error) {
+    throw new Error("Error al actualizar la nota: " + error.message);
   }
 };
