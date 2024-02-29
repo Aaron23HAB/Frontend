@@ -3,10 +3,39 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  background-color: rgb(71, 245, 193);
+  z-index: 1000;
+  background: rgb(1,99,58);
+  background: linear-gradient(90deg, rgba(1,99,58,1) 0%, rgba(9,87,121,0.8576680672268908) 35%, rgba(177,208,6,1) 100%);
   color: white;
+  padding: 10px 20px;
   display: flex;
-  flex-direction: row;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
+}
+
+.titulo {
+  margin: 0;
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+}
+
+.titulo a {
+  text-decoration: none;
+  color: white;
+}
+
+a {
+  display: inline-block;
+  margin-right: 100px;
+  text-decoration: none; /* Elimina el subrayado */
+  color: inherit;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  color: grey;
+  padding: 10px;
 }

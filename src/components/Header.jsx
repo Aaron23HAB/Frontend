@@ -9,8 +9,8 @@ export const Header = () => {
     <header>
       <h1 className="titulo">
         <Link to={"/"}>App de Notas</Link>
-        <Auth />
       </h1>
+      <Auth className="auth"/>
     </header>
   );
 };

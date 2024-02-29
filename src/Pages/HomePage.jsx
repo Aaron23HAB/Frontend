@@ -16,7 +16,7 @@ export const HomePage = () => {
     <section>
       {user ? <NewNote addNote={addNote} /> : null}
 
-      <h1>Ultimas Notas</h1>
+      <h1 className="allnotes">Ultimas Notas</h1>
 
       
       <AllNotes notes={notes} />

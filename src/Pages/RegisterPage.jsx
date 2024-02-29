@@ -6,8 +6,8 @@ export const RegisterPage = () => {
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
-  const [password1, setpassword1] = useState("");
-  const [password2, setpassword2] = useState("");
+  const [password1, setPassword1] = useState("");
+  const [password2, setPassword2] = useState("");
   const [error, setError] = useState("");
 
   const handleForm = async (e) => {
@@ -19,7 +19,7 @@ export const RegisterPage = () => {
       return;
     }
     try {
-      await registerUserService({ email, password: password1 });
+      await registerUserService({ name, email, password: password1 });
       navigate("/login");
     } catch (error) {
       setError(error.message);
@@ -27,38 +27,37 @@ export const RegisterPage = () => {
   };
 
   return (
-    <section>
+    <section className="login-box">
       <form onSubmit={handleForm}>
         <fieldset>
-          <label htmlFor="email"> Email</label>
+          <label htmlFor="email"></label>
           <input
             type="email"
             id="email"
             name="email"
             required
             onChange={(e) => setEmail(e.target.value)}
+            placeholder="Mail"
           ></input>
-        </fieldset>
-
-        <fieldset>
-          <label htmlFor="password1"> Contraseña</label>
+        
+          <label htmlFor="password1"></label>
           <input
             type="password"
             id="password1"
             name="password1"
             required
-            onChange={(e) => setpassword1(e.target.value)}
+            onChange={(e) => setPassword1(e.target.value)}
+            placeholder="Password"
           ></input>
-        </fieldset>
-
-        <fieldset>
-          <label htmlFor="password2"> Repita la contraseña </label>
+        
+          <label htmlFor="password2"></label>
           <input
             type="password"
             id="password2"
             name="password2"
             required
-            onChange={(e) => setpassword2(e.target.value)}
+            onChange={(e) => setPassword2(e.target.value)}
+            placeholder="Repeat Password"
           ></input>
         </fieldset>
 
