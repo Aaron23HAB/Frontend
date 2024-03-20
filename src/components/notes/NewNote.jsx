@@ -1,11 +1,25 @@
-import { useContext, useState } from "react";
-import { sendNoteService } from "../../services";
+import { useContext, useState, useEffect } from "react";
+import { sendNoteService, getCategoriesService } from "../../services";
 import { AuthContext } from "../../Context/AuthContext.jsx";
 
 export const NewNote = (addNote) => {
   const [error, setError] = useState("");
   const [creating, setCreating] = useState(false);
+  const [categories, setCategories] = useState([]);
   const { token } = useContext(AuthContext);
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const fetchedCategories = await getCategoriesService(token);
+        setCategories(fetchedCategories);
+      } catch (error) {
+        console.error('Error al obtener las categorías:', error);
+      }
+    };
+
+    fetchCategories();
+  }, [token]);
 
   const handleForm = async (e) => {
     e.preventDefault();
@@ -32,8 +46,13 @@ export const NewNote = (addNote) => {
         <label htmlFor="text">Texto</label>
         <input type="text" id="text" name="text" required />
 
-        <label htmlFor="text">Categoria</label>
-        <input type="text" id="text" name="categoria" required />
+        <label htmlFor="categoria">Categoría</label>
+        <select id="categoria" name="categoria" required>
+          <option value="">Seleccione una categoría</option>
+          {categories.map(category => (
+            <option key={category.id} value={category.id}>{category.nombre}</option>
+          ))}
+        </select>
 
         <button>Crear nota</button>
 

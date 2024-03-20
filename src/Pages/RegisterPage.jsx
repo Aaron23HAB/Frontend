@@ -5,6 +5,7 @@ import { registerUserService } from "../services";
 export const RegisterPage = () => {
   const navigate = useNavigate();
 
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password1, setPassword1] = useState("");
   const [password2, setPassword2] = useState("");
@@ -30,6 +31,16 @@ export const RegisterPage = () => {
     <section className="login-box">
       <form onSubmit={handleForm}>
         <fieldset>
+        <label htmlFor="name"></label>
+          <input
+            type="name"
+            id="name"
+            name="name"
+            required
+            onChange={(e) => setName(e.target.value)}
+            placeholder="Name"
+          ></input>
+
           <label htmlFor="email"></label>
           <input
             type="email"

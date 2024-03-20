@@ -51,7 +51,7 @@ export const loginUserService = async ({ email, password }) => {
   if (!response.ok) {
     throw new Error(json.message);
   }
-  return json.data;
+  return json;
 };
 
 export const getDataService = async ({ token }) => {
@@ -139,5 +139,29 @@ export const updateNoteService = async (id, updatedNote, token) => {
     return json;
   } catch (error) {
     throw new Error("Error al actualizar la nota: " + error.message);
+  }
+};
+
+export const getCategoriesService = async (token) => {
+  try {
+    const response = await fetch(
+      `${import.meta.env.VITE_BACKEND_URL}/categories`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error("Error al obtener las categorías");
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    throw new Error;
   }
 };
