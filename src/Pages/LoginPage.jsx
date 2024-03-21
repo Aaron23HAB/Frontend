@@ -16,13 +16,17 @@ export const LoginPage = () => {
     setError("");
 
     try {
-      const data = await loginUserService({ email, password });
-      login(data);
+      const response = await loginUserService({ email, password });
+      if (response !== undefined && response.token) {
+      login(response.token);
       navigate("/");
-    } catch (error) {
-      setError(error.message);
+    } else {
+      throw new Error("Login failed"); 
     }
-  };
+  } catch (error) {
+    setError(error.message);
+  }
+};
 
   return (
     <section className="login-box">
